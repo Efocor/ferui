@@ -13,7 +13,7 @@ require 'fileutils'
 class Song
   attr_reader :path, :title, :artist, :album, :duration, :format
   
-  def inicializar(path_archivo)
+  def initialize(path_archivo)
     @path = path_archivo
     @format = File.extname(path_archivo).downcase[1..]
     sacar_info_basic
@@ -51,7 +51,7 @@ class MusicPlayer
   SUPPORTED_FORMATS = %w[mp3 wav]
   CONFIG_FILE = File.join(Dir.home, '.music_player_config.json')
 
-  def inicializar
+  def initialize
     @window = Gtk::Window.new("Reproductor de Música")
     @window.set_default_size(800, 600)
     @window.set_border_width(10)
